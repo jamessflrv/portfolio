@@ -1,0 +1,330 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    body{
+    background: #111;
+    color: white;
+    overflow-x: hidden;
+    }
+    
+    
+    nav{
+    width: 100%;
+    background: #1a1a1a;
+    padding: 20px 8%;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    }
+    
+    .logo{
+    color: cyan;
+    font-size: 28px;
+    }
+    
+    nav ul{
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    flex-wrap: wrap;
+    }
+    
+    nav ul li button{
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+    padding: 10px;
+    }
+    
+    nav ul li button:hover{
+    color: cyan;
+    }
+    
+    
+    .page{
+    display: none;
+    min-height: 100vh;
+    padding: 50px 8%;
+    
+    opacity: 0;
+    transform: translateY(20px);
+    
+    transition: all 0.5s ease;
+    }
+    
+    .active{
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+
+    
+    .hero{
+    min-height: 80vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    
+    flex-wrap: wrap;
+    }
+    
+    .hero-text{
+    flex: 1;
+    min-width: 300px;
+    }
+    
+    .hero-text h1{
+    font-size: 55px;
+    margin-bottom: 15px;
+    }
+    
+    .hero-text p{
+    font-size: 22px;
+    }
+    
+    .hero-image{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 300px;
+    }
+    
+    .hero-image img{
+    width: 320px;
+    max-width: 100%;
+    border-radius: 50%;
+    border: 5px solid cyan;
+    object-fit: cover;
+    }
+    
+    
+    .page-content{
+    text-align: center;
+    margin-top: 60px;
+    }
+    
+    .page-content h1{
+    color: cyan;
+    margin-bottom: 30px;
+    font-size: 45px;
+    }
+    
+    .page-content p{
+    font-size: 20px;
+    line-height: 1.8;
+    }
+    
+    
+    button{
+    margin-top: 25px;
+    padding: 12px 25px;
+    
+    border: none;
+    border-radius: 8px;
+    
+    background: cyan;
+    color: black;
+    
+    font-weight: bold;
+    cursor: pointer;
+    
+    transition: 0.3s;
+    }
+    
+    button:hover{
+    transform: scale(1.05);
+    }
+    
+    
+    .skills-container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    }
+    
+    .card{
+    background: #1f1f1f;
+    padding: 25px 40px;
+    border-radius: 10px;
+    transition: 0.3s;
+    min-width: 150px;
+    }
+    
+    .card:hover{
+    transform: translateY(-10px);
+    }
+    
+    
+    .cert-container{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    }
+    
+    .cert-card{
+    background: #1f1f1f;
+    width: 300px;
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    
+    transition: 0.3s;
+    }
+    
+    .cert-card:hover{
+    transform: translateY(-10px);
+    }
+    
+    .cert-card img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    
+    cursor: pointer;
+    transition: 0.3s;
+    }
+    
+    .cert-card img:hover{
+    transform: scale(1.03);
+    }
+    
+    .cert-card h3{
+    margin-top: 15px;
+    }
+    
+    
+    .exit-screen{
+    width: 100%;
+    height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    background: #111;
+    color: white;
+    
+    text-align: center;
+    padding: 20px;
+    }
+    
+    .exit-screen h1{
+    color: cyan;
+    margin-bottom: 20px;
+    font-size: 50px;
+    }
+    
+    .exit-screen p{
+    font-size: 20px;
+    }
+    
+    
+    @media (max-width: 992px){
+    
+    .hero{
+    gap: 40px;
+    }
+    
+    .hero-text h1{
+    font-size: 45px;
+    }
+    
+    }
+    
+    @media (max-width: 768px){
+    
+    nav{
+    flex-direction: column;
+    gap: 15px;
+    }
+    
+    nav ul{
+    justify-content: center;
+    }
+    
+    .hero{
+    text-align: center;
+    flex-direction: column;
+    }
+    
+    .hero-text h1{
+    font-size: 38px;
+    }
+    
+    .hero-text p{
+    font-size: 18px;
+    }
+    
+    .page-content h1{
+    font-size: 35px;
+    }
+    
+    .page-content p{
+    font-size: 18px;
+    }
+    
+    .hero-image img{
+    width: 250px;
+    }
+    
+    }
+    
+    @media (max-width: 480px){
+    
+    nav{
+    padding: 20px;
+    }
+    
+    .logo{
+    font-size: 22px;
+    }
+    
+    nav ul{
+    gap: 10px;
+    }
+    
+    nav ul li button{
+    font-size: 14px;
+    }
+    
+    .hero-text h1{
+    font-size: 30px;
+    }
+    
+    .hero-text p{
+    font-size: 16px;
+    }
+    
+    .page-content h1{
+    font-size: 28px;
+    }
+    
+    .card{
+    width: 100%;
+    }
+    
+    .cert-card{
+    width: 100%;
+    }
+    
+    }

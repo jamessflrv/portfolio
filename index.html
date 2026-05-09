@@ -1,12 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>James Christian Vea | Web Portfolio</title>
-    </head>
-    <body>
-        <h1>James Christian Vea</h1>
-        <img src="pogi.jpeg" alt="A Description of the image" width="300"?
-    </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>James Christian Vea | Portfolio</title>
+
+<link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+<nav>
+
+<h2 class="logo">PORTFOLIO</h2>
+
+<ul>
+<li><button onclick="showSection('home')">Home</button></li>
+<li><button onclick="showSection('about')">About</button></li>
+<li><button onclick="showSection('skills')">Skills</button></li>
+<li><button onclick="showSection('certifications')">Certifications</button></li>
+<li><button onclick="showSection('contact')">Contact</button></li>
+</ul>
+
+</nav>
+
+
+<section id="home" class="page active">
+
+<div class="hero">
+
+<div class="hero-text">
+
+<h1>Hello, I'm James Christian Vea</h1>
+
+<p>Aspiring Web Developer & Student</p>
+
+<button onclick="showSection('about')">
+Explore More
+</button>
+
+</div>
+
+<div class="hero-image">
+<img src="pogi.jpeg" alt="Profile Picture">
+</div>
+
+</div>
+
+</section>
+
+
+<section id="about" class="page">
+
+<div class="page-content">
+
+<h1>About Me</h1>
+
+<p>
+I am passionate about web development and programming.
+I enjoy designing modern websites and improving my coding skills.
+</p>
+
+</div>
+
+</section>
+
+
+<section id="skills" class="page">
+
+<div class="page-content">
+
+<h1>My Skills</h1>
+
+<div class="skills-container">
+
+<div class="card">HTML</div>
+<div class="card">CSS</div>
+<div class="card">JavaScript</div>
+<div class="card">Python</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="certifications" class="page">
+
+<div class="page-content">
+
+<h1>My Certifications</h1>
+
+<div class="cert-container">
+
+<div class="cert-card">
+
+<a href="https://your-link-1.com" target="_blank">
+<img src="cert1.jpg" alt="Certificate 1">
+</a>
+
+<h3>Web Development Certificate</h3>
+
+</div>
+
+<div class="cert-card">
+
+<a href="https://www.credly.com/badges/e40994a7-d545-4fff-8722-70122c3bb708/public_url" target="_blank">
+<img src="cert2.jpg" alt="Certificate 2">
+</a>
+
+<h3>Python</h3>
+
+</div>
+
+<div class="cert-card">
+
+<a href="https://www.credly.com/badges/3591bc03-ed57-4790-8eaf-fea2abf88919/public_url" target="_blank">
+<img src="cert3.jpg" alt="Certificate 3">
+</a>
+
+<h3>Java Certificate</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="contact" class="page">
+
+<div class="page-content">
+
+<h1>Contact Me</h1>
+
+<p>Email: jayzeevea@gmail.com</p>
+<p>Number: +639292519350</p>
+<p>Facebook: James Christian Vea</p>
+
+<button onclick="exitPortfolio()">
+Exit
+</button>
+
+</div>
+
+</section>
+
+<script src="index.js"></script>
+
+</body>
 </html>
