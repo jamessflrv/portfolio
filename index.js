@@ -1,50 +1,105 @@
-function showSection(sectionId) {
-    const sections = document.querySelectorAll(".page");
-    const navLinks = document.querySelectorAll(".nav-link");
-    const targetSection = document.getElementById(sectionId);
+(function () {
+  const canvas = document.createElement('canvas');
+  canvas.id = 'particle-bg';
+  document.body.insertBefore(canvas, document.body.firstChild);
 
-    navLinks.forEach(link => link.classList.remove("active"));
-    
-    const activeNavLink = document.getElementById('nav-' + sectionId);
-    if(activeNavLink) activeNavLink.classList.add("active");
+  const ctx = canvas.getContext('2d');
 
+  const CONFIG = {
+    particleCount: 80,
+    particleColor: '0, 255, 255',   /* cyan to match your theme */
+    lineColor: '0, 255, 255',
+    particleOpacity: 0.55,
+    lineOpacity: 0.12,
+    maxDistance: 140,
+    minSpeed: 0.15,
+    maxSpeed: 0.45,
+    minRadius: 1.5,
+    maxRadius: 3,
+  };
 
-    sections.forEach(section => {
-        if (section.classList.contains("active")) {
-            section.style.opacity = "0";
-            section.style.transform = "translateY(-20px)"; // Slide up slightly as it disappears
-            
-            setTimeout(() => {
-                section.classList.remove("active");
-                section.style.display = "none";
-            }, 400); 
+  let particles = [];
+  let W, H, animId;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function rand(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  function createParticle() {
+    return {
+      x:  rand(0, W),
+      y:  rand(0, H),
+      vx: rand(-1, 1) * rand(CONFIG.minSpeed, CONFIG.maxSpeed),
+      vy: rand(-1, 1) * rand(CONFIG.minSpeed, CONFIG.maxSpeed),
+      r:  rand(CONFIG.minRadius, CONFIG.maxRadius),
+    };
+  }
+
+  function init() {
+    particles = [];
+    for (let i = 0; i < CONFIG.particleCount; i++) {
+      particles.push(createParticle());
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    /* Draw lines between close particles */
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const a = particles[i], b = particles[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < CONFIG.maxDistance) {
+          const alpha = CONFIG.lineOpacity * (1 - dist / CONFIG.maxDistance);
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(${CONFIG.lineColor}, ${alpha})`;
+          ctx.lineWidth = 0.7;
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
         }
-    });
+      }
+    }
 
-    setTimeout(() => {
-        targetSection.style.display = "block";
-        setTimeout(() => {
-            targetSection.style.opacity = "1";
-            targetSection.style.transform = "translateY(0)";
-            targetSection.classList.add("active");
-        }, 50);
-    }, 450);
-}
+    /* Draw particles */
+    for (const p of particles) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${CONFIG.particleColor}, ${CONFIG.particleOpacity})`;
+      ctx.fill();
+    }
+  }
 
-function openLightbox(src, alt) {
-    const lb = document.getElementById("lightbox");
-    const img = document.getElementById("lightbox-img");
-    img.src = src;
-    img.alt = alt;
-    lb.classList.add("open");
-    document.body.style.overflow = "hidden";
-}
+  function update() {
+    for (const p of particles) {
+      p.x += p.vx;
+      p.y += p.vy;
 
-function closeLightbox() {
-    document.getElementById("lightbox").classList.remove("open");
-    document.body.style.overflow = "";
-}
+      /* Bounce off walls */
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+    }
+  }
 
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeLightbox();
-});
+  function loop() {
+    update();
+    draw();
+    animId = requestAnimationFrame(loop);
+  }
+
+  window.addEventListener('resize', function () {
+    resize();
+    init();
+  });
+
+  resize();
+  init();
+  loop();
+})();
