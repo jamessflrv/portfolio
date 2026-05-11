@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>James Christian Vea | Home</title>
+<title>James Christian Vea | About</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
 body{background:#111;color:white;overflow-x:hidden}
 
+/* ── Page transition ── */
 body{animation:pageFadeIn 0.5s ease forwards}
 @keyframes pageFadeIn{
   from{opacity:0;transform:translateY(24px)}
@@ -25,18 +26,14 @@ nav ul{display:flex;gap:5px;list-style:none;flex-wrap:wrap}
 nav ul li a{display:block;color:white;text-decoration:none;font-size:16px;padding:10px 14px;border-radius:6px;transition:color 0.3s}
 nav ul li a:hover,nav ul li a.active{color:cyan}
 .page{min-height:calc(100vh - 80px);padding:60px 8%}
-.hero{min-height:80vh;display:flex;justify-content:center;align-items:center;gap:60px;flex-wrap:wrap}
-.hero-text{flex:1;min-width:300px}
-.hero-text h1{font-size:55px;margin-bottom:15px}
-.hero-text p{font-size:22px;color:#ccc}
-.hero-image{flex:1;display:flex;justify-content:center;min-width:300px}
-.hero-image img{width:320px;max-width:100%;border-radius:50%;border:5px solid cyan;object-fit:cover}
+.page-content{text-align:center;max-width:900px;margin:0 auto}
+.page-content h1{color:cyan;margin-bottom:30px;font-size:45px}
+.page-content p{font-size:20px;line-height:1.8;color:#ccc}
 .btn{display:inline-block;margin-top:25px;padding:12px 28px;border:none;border-radius:8px;background:cyan;color:black;font-weight:bold;font-size:16px;cursor:pointer;text-decoration:none;transition:transform 0.3s}
 .btn:hover{transform:scale(1.05)}
 footer{text-align:center;padding:24px 8%;font-size:14px;color:#555;border-top:1px solid #222}
-@media(max-width:992px){.hero{gap:40px}.hero-text h1{font-size:45px}}
-@media(max-width:768px){nav{flex-direction:column;gap:15px}nav ul{justify-content:center}.hero{text-align:center;flex-direction:column}.hero-text h1{font-size:38px}.hero-text p{font-size:18px}.hero-image img{width:250px}}
-@media(max-width:480px){nav{padding:20px}.logo{font-size:22px}nav ul{gap:5px}nav ul li a{font-size:14px;padding:8px 10px}.hero-text h1{font-size:30px}.hero-text p{font-size:16px}}
+@media(max-width:768px){nav{flex-direction:column;gap:15px}nav ul{justify-content:center}.page-content h1{font-size:35px}.page-content p{font-size:18px}}
+@media(max-width:480px){nav{padding:20px}.logo{font-size:22px}nav ul{gap:5px}nav ul li a{font-size:14px;padding:8px 10px}.page-content h1{font-size:28px}}
 </style>
 </head>
 <body>
@@ -44,8 +41,8 @@ footer{text-align:center;padding:24px 8%;font-size:14px;color:#555;border-top:1p
 <nav>
   <a href="index.html" class="logo">PORTFOLIO</a>
   <ul>
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="about.html">About</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
     <li><a href="techstack.html">Tech Stack</a></li>
     <li><a href="certifications.html">Certifications</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -53,15 +50,15 @@ footer{text-align:center;padding:24px 8%;font-size:14px;color:#555;border-top:1p
 </nav>
 
 <main class="page">
-  <div class="hero">
-    <div class="hero-text">
-      <h1>Hello, I'm James Christian Vea</h1>
-      <p>Aspiring Web Developer &amp; Student</p>
-      <a href="about.html" class="btn nav-link">Explore More</a>
-    </div>
-    <div class="hero-image">
-      <img src="pogi.jpeg" alt="James Christian Vea">
-    </div>
+  <div class="page-content">
+    <h1>About Me</h1>
+    <p>
+      I am James Christian Vea, an aspiring web developer and IT student based in the Philippines.
+      I am passionate about building modern, user-friendly websites and continuously improving my
+      programming skills. I enjoy learning new technologies and applying them to real-world projects.
+      My goal is to grow as a full-stack developer and contribute to meaningful digital solutions.
+    </p>
+    <a href="techstack.html" class="btn">See My Tech Stack</a>
   </div>
 </main>
 

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>James Christian Vea | Certifications</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{background:#111;color:white;overflow-x:hidden}
+
+body{animation:pageFadeIn 0.5s ease forwards}
+@keyframes pageFadeIn{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+body.fade-out{animation:pageFadeOut 0.35s ease forwards}
+@keyframes pageFadeOut{
+  from{opacity:1;transform:translateY(0)}
+  to{opacity:0;transform:translateY(-16px)}
+}
+
+.cert-card{opacity:0;animation:cardIn 0.4s ease forwards}
+.cert-card:nth-child(1){animation-delay:0.1s}
+.cert-card:nth-child(2){animation-delay:0.2s}
+.cert-card:nth-child(3){animation-delay:0.3s}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+nav{width:100%;background:#1a1a1a;padding:20px 8%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;position:sticky;top:0;z-index:1000}
+.logo{color:cyan;font-size:28px;text-decoration:none}
+nav ul{display:flex;gap:5px;list-style:none;flex-wrap:wrap}
+nav ul li a{display:block;color:white;text-decoration:none;font-size:16px;padding:10px 14px;border-radius:6px;transition:color 0.3s}
+nav ul li a:hover,nav ul li a.active{color:cyan}
+.page{min-height:calc(100vh - 80px);padding:60px 8%}
+.page-content{text-align:center;max-width:1000px;margin:0 auto}
+.page-content h1{color:cyan;margin-bottom:15px;font-size:45px}
+.page-content>p{font-size:16px;color:#aaa;margin-bottom:10px}
+.cert-container{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:40px}
+.cert-card{background:#1f1f1f;width:300px;max-width:100%;padding:20px;border-radius:10px;transition:transform 0.3s}
+.cert-card:hover{transform:translateY(-10px)}
+.cert-card img{width:100%;height:200px;object-fit:cover;border-radius:10px;cursor:zoom-in;transition:transform 0.3s;display:block}
+.cert-card img:hover{transform:scale(1.03)}
+.cert-card h3{margin-top:15px}
+.cert-card h3 a{color:cyan;text-decoration:none;transition:color 0.2s}
+.cert-card h3 a:hover{text-decoration:underline;color:white}
+footer{text-align:center;padding:24px 8%;font-size:14px;color:#555;border-top:1px solid #222}
+
+#lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:9999;display:flex;justify-content:center;align-items:center;cursor:zoom-out;opacity:0;visibility:hidden;transition:opacity 0.25s ease,visibility 0.25s ease}
+#lightbox.open{opacity:1;visibility:visible}
+#lightbox-img{max-width:90vw;max-height:85vh;border-radius:10px;border:3px solid cyan;cursor:default;transform:scale(0.8);transition:transform 0.3s ease;display:block}
+#lightbox.open #lightbox-img{transform:scale(1)}
+#lightbox-close{position:fixed;top:18px;right:28px;font-size:44px;color:white;cursor:pointer;line-height:1;transition:0.2s;user-select:none;z-index:10000}
+#lightbox-close:hover{color:cyan;transform:scale(1.2)}
+
+@media(max-width:768px){nav{flex-direction:column;gap:15px}nav ul{justify-content:center}.page-content h1{font-size:35px}}
+@media(max-width:480px){nav{padding:20px}.logo{font-size:22px}nav ul{gap:5px}nav ul li a{font-size:14px;padding:8px 10px}.page-content h1{font-size:28px}.cert-card{width:100%}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">PORTFOLIO</a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="techstack.html">Tech Stack</a></li>
+    <li><a href="certifications.html" class="active">Certifications</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main class="page">
+  <div class="page-content">
+    <h1>My Certifications</h1>
+    <p>Click an image to zoom &bull; Click the title to view proof</p>
+    <div class="cert-container">
+
+      <div class="cert-card">
+        <img src="cert1.jpg" alt="Web Development Certificate" onclick="openLightbox(this.src)">
+        <h3><a href="https://your-link-1.com" target="_blank">Web Development Certificate</a></h3>
+      </div>
+
+      <div class="cert-card">
+        <img src="cert2.jpg" alt="Python Certificate" onclick="openLightbox(this.src)">
+        <h3><a href="https://www.credly.com/badges/e40994a7-d545-4fff-8722-70122c3bb708/public_url" target="_blank">Python</a></h3>
+      </div>
+
+      <div class="cert-card">
+        <img src="cert3.jpg" alt="Java Certificate" onclick="openLightbox(this.src)">
+        <h3><a href="https://www.credly.com/badges/3591bc03-ed57-4790-8eaf-fea2abf88919/public_url" target="_blank">Java Certificate</a></h3>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<div id="lightbox">
+  <span id="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" src="" alt="Certificate">
+</div>
+
+<footer>
+  <p>&copy; 2025 James Christian Vea. All rights reserved.</p>
+</footer>
+
+<script>
+/* ── Lightbox ── */
+var lightbox    = document.getElementById('lightbox');
+var lightboxImg = document.getElementById('lightbox-img');
+
+function openLightbox(src) {
+  lightboxImg.src = src;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+  lightboxImg.src = '';
+}
+lightbox.addEventListener('click', function(e) {
+  if (e.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+/* ── Page transition ── */
+document.querySelectorAll('a[href]').forEach(function(link) {
+  var href = link.getAttribute('href');
+  if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto')) return;
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.body.classList.add('fade-out');
+    setTimeout(function() { window.location.href = href; }, 350);
+  });
+});
+</script>
+
+</body>
+</html>

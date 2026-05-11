@@ -1,330 +1,350 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    }
-    
-    body{
+}
+
+body {
     background: #111;
     color: white;
     overflow-x: hidden;
-    }
-    
-    
-    nav{
+}
+
+/* ── Nav ── */
+nav {
     width: 100%;
     background: #1a1a1a;
     padding: 20px 8%;
-    
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    
     position: sticky;
     top: 0;
     z-index: 1000;
-    }
-    
-    .logo{
+}
+
+.logo {
     color: cyan;
     font-size: 28px;
-    }
-    
-    nav ul{
+    text-decoration: none;
+}
+
+nav ul {
     display: flex;
-    gap: 15px;
+    gap: 5px;
     list-style: none;
     flex-wrap: wrap;
-    }
-    
-    nav ul li button{
-    background: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s;
-    padding: 10px;
-    }
-    
-    nav ul li button:hover{
-    color: cyan;
-    }
-    
-    
-    .page{
-    display: none;
-    min-height: 100vh;
-    padding: 50px 8%;
-    
-    opacity: 0;
-    transform: translateY(20px);
-    
-    transition: all 0.5s ease;
-    }
-    
-    .active{
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
+}
 
-    
-    .hero{
+nav ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: cyan;
+}
+
+/* ── Page wrapper ── */
+.page {
+    min-height: calc(100vh - 80px);
+    padding: 60px 8%;
+}
+
+/* ── Hero (Home) ── */
+.hero {
     min-height: 80vh;
-    
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 60px;
-    
     flex-wrap: wrap;
-    }
-    
-    .hero-text{
+}
+
+.hero-text {
     flex: 1;
     min-width: 300px;
-    }
-    
-    .hero-text h1{
+}
+
+.hero-text h1 {
     font-size: 55px;
     margin-bottom: 15px;
-    }
-    
-    .hero-text p{
+}
+
+.hero-text p {
     font-size: 22px;
-    }
-    
-    .hero-image{
+    color: #ccc;
+}
+
+.hero-image {
     flex: 1;
     display: flex;
     justify-content: center;
     min-width: 300px;
-    }
-    
-    .hero-image img{
+}
+
+.hero-image img {
     width: 320px;
     max-width: 100%;
     border-radius: 50%;
     border: 5px solid cyan;
     object-fit: cover;
-    }
-    
-    
-    .page-content{
+}
+
+/* ── Page Content ── */
+.page-content {
     text-align: center;
-    margin-top: 60px;
-    }
-    
-    .page-content h1{
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.page-content h1 {
     color: cyan;
     margin-bottom: 30px;
     font-size: 45px;
-    }
-    
-    .page-content p{
+}
+
+.page-content p {
     font-size: 20px;
     line-height: 1.8;
-    }
-    
-    
-    button{
+    color: #ccc;
+}
+
+/* ── Button ── */
+.btn {
+    display: inline-block;
     margin-top: 25px;
-    padding: 12px 25px;
-    
+    padding: 12px 28px;
     border: none;
     border-radius: 8px;
-    
     background: cyan;
     color: black;
-    
     font-weight: bold;
+    font-size: 16px;
     cursor: pointer;
-    
+    text-decoration: none;
     transition: 0.3s;
-    }
-    
-    button:hover{
+}
+
+.btn:hover {
     transform: scale(1.05);
-    }
-    
-    
-    .skills-container{
+}
+
+/* ── Skills ── */
+.skills-container {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-    margin-top: 30px;
-    }
-    
-    .card{
+    margin-top: 40px;
+}
+
+.skill-card {
     background: #1f1f1f;
-    padding: 25px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 28px 32px;
     border-radius: 10px;
+    min-width: 120px;
     transition: 0.3s;
-    min-width: 150px;
-    }
-    
-    .card:hover{
+}
+
+.skill-card:hover {
     transform: translateY(-10px);
-    }
-    
-    
-    .cert-container{
+}
+
+.skill-card i {
+    font-size: 56px;
+    line-height: 1;
+}
+
+.skill-card span {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ccc;
+    letter-spacing: 0.5px;
+}
+
+/* ── Certifications ── */
+.cert-container {
     display: flex;
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
-    margin-top: 30px;
-    }
-    
-    .cert-card{
+    margin-top: 40px;
+}
+
+.cert-card {
     background: #1f1f1f;
     width: 300px;
     max-width: 100%;
     padding: 20px;
     border-radius: 10px;
-    
     transition: 0.3s;
-    }
-    
-    .cert-card:hover{
+}
+
+.cert-card:hover {
     transform: translateY(-10px);
-    }
-    
-    .cert-card img{
+}
+
+.cert-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
-    
-    cursor: pointer;
+    cursor: zoom-in;
     transition: 0.3s;
-    }
-    
-    .cert-card img:hover{
+}
+
+.cert-card img:hover {
     transform: scale(1.03);
-    }
-    
-    .cert-card h3{
+}
+
+.cert-card h3 {
     margin-top: 15px;
-    }
-    
-    
-    .exit-screen{
-    width: 100%;
-    height: 100vh;
-    
-    display: flex;
+}
+
+.cert-card h3 a {
+    color: cyan;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.cert-card h3 a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+/* ── Lightbox ── */
+#lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 9999;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    
-    background: #111;
+    cursor: zoom-out;
+    animation: fadeIn 0.25s ease;
+}
+
+#lightbox.open {
+    display: flex;
+}
+
+#lightbox img {
+    max-width: 90vw;
+    max-height: 88vh;
+    border-radius: 10px;
+    border: 3px solid cyan;
+    animation: zoomIn 0.3s ease;
+    cursor: default;
+}
+
+#lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
     color: white;
-    
-    text-align: center;
-    padding: 20px;
-    }
-    
-    .exit-screen h1{
+    cursor: pointer;
+    line-height: 1;
+    transition: 0.2s;
+    user-select: none;
+}
+
+#lightbox-close:hover {
     color: cyan;
-    margin-bottom: 20px;
-    font-size: 50px;
-    }
-    
-    .exit-screen p{
-    font-size: 20px;
-    }
-    
-    
-    @media (max-width: 992px){
-    
-    .hero{
-    gap: 40px;
-    }
-    
-    .hero-text h1{
-    font-size: 45px;
-    }
-    
-    }
-    
-    @media (max-width: 768px){
-    
-    nav{
+    transform: scale(1.2);
+}
+
+/* ── Contact ── */
+.contact-list {
+    list-style: none;
+    margin-top: 30px;
+    display: flex;
     flex-direction: column;
-    gap: 15px;
-    }
-    
-    nav ul{
-    justify-content: center;
-    }
-    
-    .hero{
-    text-align: center;
-    flex-direction: column;
-    }
-    
-    .hero-text h1{
-    font-size: 38px;
-    }
-    
-    .hero-text p{
-    font-size: 18px;
-    }
-    
-    .page-content h1{
-    font-size: 35px;
-    }
-    
-    .page-content p{
-    font-size: 18px;
-    }
-    
-    .hero-image img{
-    width: 250px;
-    }
-    
-    }
-    
-    @media (max-width: 480px){
-    
-    nav{
-    padding: 20px;
-    }
-    
-    .logo{
-    font-size: 22px;
-    }
-    
-    nav ul{
+    gap: 18px;
+    align-items: center;
+}
+
+.contact-list li a {
+    display: inline-flex;
+    align-items: center;
     gap: 10px;
-    }
-    
-    nav ul li button{
+    color: cyan;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+.contact-list li a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.contact-list li a img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+}
+
+/* ── Footer ── */
+footer {
+    text-align: center;
+    padding: 24px 8%;
     font-size: 14px;
-    }
-    
-    .hero-text h1{
-    font-size: 30px;
-    }
-    
-    .hero-text p{
-    font-size: 16px;
-    }
-    
-    .page-content h1{
-    font-size: 28px;
-    }
-    
-    .card{
-    width: 100%;
-    }
-    
-    .cert-card{
-    width: 100%;
-    }
-    
-    }
+    color: #555;
+    border-top: 1px solid #222;
+}
+
+/* ── Animations ── */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.75); opacity: 0; }
+    to   { transform: scale(1);    opacity: 1; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px) {
+    .hero { gap: 40px; }
+    .hero-text h1 { font-size: 45px; }
+}
+
+@media (max-width: 768px) {
+    nav { flex-direction: column; gap: 15px; }
+    nav ul { justify-content: center; }
+    .hero { text-align: center; flex-direction: column; }
+    .hero-text h1 { font-size: 38px; }
+    .hero-text p  { font-size: 18px; }
+    .page-content h1 { font-size: 35px; }
+    .page-content p  { font-size: 18px; }
+    .hero-image img  { width: 250px; }
+}
+
+@media (max-width: 480px) {
+    nav { padding: 20px; }
+    .logo { font-size: 22px; }
+    nav ul { gap: 5px; }
+    nav ul li a { font-size: 14px; padding: 8px 10px; }
+    .hero-text h1 { font-size: 30px; }
+    .hero-text p  { font-size: 16px; }
+    .page-content h1 { font-size: 28px; }
+    .skill-card { width: 100%; }
+    .skill-card i { font-size: 44px; }
+    .cert-card { width: 100%; }
+}
