@@ -7,7 +7,7 @@
 
   const CONFIG = {
     particleCount: 80,
-    particleColor: '0, 255, 255',   /* cyan to match your theme */
+    particleColor: '0, 255, 255',  
     lineColor: '0, 255, 255',
     particleOpacity: 0.55,
     lineOpacity: 0.12,
@@ -50,7 +50,6 @@
   function draw() {
     ctx.clearRect(0, 0, W, H);
 
-    /* Draw lines between close particles */
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const a = particles[i], b = particles[j];
@@ -68,7 +67,7 @@
       }
     }
 
-    /* Draw particles */
+   
     for (const p of particles) {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
@@ -82,7 +81,6 @@
       p.x += p.vx;
       p.y += p.vy;
 
-      /* Bounce off walls */
       if (p.x < 0 || p.x > W) p.vx *= -1;
       if (p.y < 0 || p.y > H) p.vy *= -1;
     }

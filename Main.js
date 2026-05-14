@@ -1,4 +1,3 @@
-/* ── Page transition links ── */
 document.querySelectorAll('a[href]').forEach(function (link) {
     var href = link.getAttribute('href');
     if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto')) return;
@@ -9,7 +8,6 @@ document.querySelectorAll('a[href]').forEach(function (link) {
     });
 });
 
-/* ── Lightbox (used on Certifications page) ── */
 var lightbox    = document.getElementById('lightbox');
 var lightboxImg = document.getElementById('lightbox-img');
 
