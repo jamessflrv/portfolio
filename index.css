@@ -91,7 +91,6 @@ nav ul li a.active {
     padding: 60px 8%;
 }
 
-/* ── Hero (Home) ── */
 .hero {
     min-height: 80vh;
     display: flex;
@@ -131,7 +130,6 @@ nav ul li a.active {
     object-fit: cover;
 }
 
-/* ── Page content ── */
 .page-content {
     text-align: center;
     max-width: 900px;
@@ -154,7 +152,6 @@ nav ul li a.active {
     margin-top: 20px;
 }
 
-/* ── Button ── */
 .btn {
     display: inline-block;
     margin-top: 25px;
@@ -174,7 +171,6 @@ nav ul li a.active {
     transform: scale(1.05);
 }
 
-/* ── Tech Stack ── */
 .skills-container {
     display: flex;
     justify-content: center;
