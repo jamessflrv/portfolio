@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -26,6 +28,22 @@ body.fade-out {
     to   { opacity: 0; transform: translateY(-16px); }
 }
 
+#particle-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+nav,
+main,
+footer {
+    position: relative;
+    z-index: 1;
+}
 
 nav {
     width: 100%;
@@ -60,7 +78,7 @@ nav ul li a {
     font-size: 16px;
     padding: 10px 14px;
     border-radius: 6px;
-    transition: 0.3s;
+    transition: color 0.3s;
 }
 
 nav ul li a:hover,
@@ -73,6 +91,7 @@ nav ul li a.active {
     padding: 60px 8%;
 }
 
+/* ── Hero (Home) ── */
 .hero {
     min-height: 80vh;
     display: flex;
@@ -112,6 +131,7 @@ nav ul li a.active {
     object-fit: cover;
 }
 
+/* ── Page content ── */
 .page-content {
     text-align: center;
     max-width: 900px;
@@ -124,13 +144,17 @@ nav ul li a.active {
     font-size: 45px;
 }
 
-.page-content p {
+.page-content > p {
     font-size: 20px;
     line-height: 1.8;
     color: #ccc;
 }
 
+.page-content > p + p {
+    margin-top: 20px;
+}
 
+/* ── Button ── */
 .btn {
     display: inline-block;
     margin-top: 25px;
@@ -143,13 +167,14 @@ nav ul li a.active {
     font-size: 16px;
     cursor: pointer;
     text-decoration: none;
-    transition: 0.3s;
+    transition: transform 0.3s;
 }
 
 .btn:hover {
     transform: scale(1.05);
 }
 
+/* ── Tech Stack ── */
 .skills-container {
     display: flex;
     justify-content: center;
@@ -167,7 +192,9 @@ nav ul li a.active {
     padding: 28px 32px;
     border-radius: 10px;
     min-width: 120px;
-    transition: 0.3s;
+    transition: transform 0.3s;
+    opacity: 0;
+    animation: cardIn 0.4s ease forwards;
 }
 
 .skill-card:hover {
@@ -186,6 +213,22 @@ nav ul li a.active {
     letter-spacing: 0.5px;
 }
 
+.skill-card:nth-child(1)  { animation-delay: 0.05s; }
+.skill-card:nth-child(2)  { animation-delay: 0.10s; }
+.skill-card:nth-child(3)  { animation-delay: 0.15s; }
+.skill-card:nth-child(4)  { animation-delay: 0.20s; }
+.skill-card:nth-child(5)  { animation-delay: 0.25s; }
+.skill-card:nth-child(6)  { animation-delay: 0.30s; }
+.skill-card:nth-child(7)  { animation-delay: 0.35s; }
+.skill-card:nth-child(8)  { animation-delay: 0.40s; }
+.skill-card:nth-child(9)  { animation-delay: 0.45s; }
+.skill-card:nth-child(10) { animation-delay: 0.50s; }
+
+@keyframes cardIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
 .cert-container {
     display: flex;
     justify-content: center;
@@ -200,20 +243,28 @@ nav ul li a.active {
     max-width: 100%;
     padding: 20px;
     border-radius: 10px;
-    transition: 0.3s;
+    transition: transform 0.3s;
+    opacity: 0;
+    animation: cardIn 0.4s ease forwards;
 }
 
 .cert-card:hover {
     transform: translateY(-10px);
 }
 
+.cert-card:nth-child(1) { animation-delay: 0.1s; }
+.cert-card:nth-child(2) { animation-delay: 0.2s; }
+.cert-card:nth-child(3) { animation-delay: 0.3s; }
+.cert-card:nth-child(4) { animation-delay: 0.4s; }
+
 .cert-card img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     border-radius: 10px;
     cursor: zoom-in;
-    transition: 0.3s;
+    transition: transform 0.3s;
+    display: block;
 }
 
 .cert-card img:hover {
@@ -227,7 +278,7 @@ nav ul li a.active {
 .cert-card h3 a {
     color: cyan;
     text-decoration: none;
-    transition: 0.2s;
+    transition: color 0.2s;
 }
 
 .cert-card h3 a:hover {
@@ -236,40 +287,50 @@ nav ul li a.active {
 }
 
 #lightbox {
-    display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.92);
+    background: rgba(0, 0, 0, 0.93);
     z-index: 9999;
+    display: flex;
     justify-content: center;
     align-items: center;
     cursor: zoom-out;
-    animation: fadeIn 0.25s ease;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
 #lightbox.open {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
 }
 
-#lightbox img {
+#lightbox-img {
     max-width: 90vw;
-    max-height: 88vh;
+    max-height: 85vh;
     border-radius: 10px;
     border: 3px solid cyan;
-    animation: zoomIn 0.3s ease;
     cursor: default;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+#lightbox.open #lightbox-img {
+    transform: scale(1);
 }
 
 #lightbox-close {
     position: fixed;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
+    top: 18px;
+    right: 28px;
+    font-size: 44px;
     color: white;
     cursor: pointer;
     line-height: 1;
-    transition: 0.2s;
+    transition: color 0.2s, transform 0.2s;
     user-select: none;
+    z-index: 10000;
 }
 
 #lightbox-close:hover {
@@ -293,7 +354,7 @@ nav ul li a.active {
     color: cyan;
     text-decoration: none;
     font-size: 20px;
-    transition: 0.2s;
+    transition: color 0.2s;
 }
 
 .contact-list li a:hover {
@@ -315,7 +376,6 @@ footer {
     border-top: 1px solid #222;
 }
 
-/* ── Animations ── */
 @keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -338,7 +398,7 @@ footer {
     .hero-text h1 { font-size: 38px; }
     .hero-text p  { font-size: 18px; }
     .page-content h1 { font-size: 35px; }
-    .page-content p  { font-size: 18px; }
+    .page-content > p { font-size: 18px; }
     .hero-image img  { width: 250px; }
 }
 
