@@ -244,6 +244,8 @@ nav ul li a.active {
 .skill-card:nth-child(8)  { animation-delay: 0.40s; }
 .skill-card:nth-child(9)  { animation-delay: 0.45s; }
 .skill-card:nth-child(10) { animation-delay: 0.50s; }
+.skill-card:nth-child(11) { animation-delay: 0.55s; }
+.skill-card:nth-child(12) { animation-delay: 0.60s; }
 
 @keyframes cardIn {
     from { opacity: 0; transform: translateY(20px) scale(0.95); }
