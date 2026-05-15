@@ -8,7 +8,7 @@
 }
 
 body {
-    background: #111;
+    background: #0e0b14;
     color: white;
     overflow-x: hidden;
     animation: pageFadeIn 0.5s ease forwards;
@@ -47,7 +47,7 @@ footer {
 
 nav {
     width: 100%;
-    background: #1a1a1a;
+    background: #130f1e;
     padding: 20px 8%;
     display: flex;
     justify-content: space-between;
@@ -59,7 +59,7 @@ nav {
 }
 
 .logo {
-    color: cyan;
+    color: #b48ef5;
     font-size: 28px;
     text-decoration: none;
 }
@@ -83,7 +83,7 @@ nav ul li a {
 
 nav ul li a:hover,
 nav ul li a.active {
-    color: cyan;
+    color: #b48ef5;
 }
 
 .page {
@@ -126,7 +126,7 @@ nav ul li a.active {
     width: 320px;
     max-width: 100%;
     border-radius: 50%;
-    border: 5px solid cyan;
+    border: 5px solid #b48ef5;
     object-fit: cover;
 }
 
@@ -137,7 +137,7 @@ nav ul li a.active {
 }
 
 .page-content h1 {
-    color: cyan;
+    color: #b48ef5;
     margin-bottom: 30px;
     font-size: 45px;
 }
@@ -158,7 +158,7 @@ nav ul li a.active {
     padding: 12px 28px;
     border: none;
     border-radius: 8px;
-    background: cyan;
+    background: #b48ef5;
     color: black;
     font-weight: bold;
     font-size: 16px;
@@ -180,7 +180,7 @@ nav ul li a.active {
 }
 
 .skill-card {
-    background: #1f1f1f;
+    background: #17112a;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -234,7 +234,7 @@ nav ul li a.active {
 }
 
 .cert-card {
-    background: #1f1f1f;
+    background: #17112a;
     width: 300px;
     max-width: 100%;
     padding: 20px;
@@ -272,7 +272,7 @@ nav ul li a.active {
 }
 
 .cert-card h3 a {
-    color: cyan;
+    color: #b48ef5;
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -305,7 +305,7 @@ nav ul li a.active {
     max-width: 90vw;
     max-height: 85vh;
     border-radius: 10px;
-    border: 3px solid cyan;
+    border: 3px solid #b48ef5;
     cursor: default;
     transform: scale(0.8);
     transition: transform 0.3s ease;
@@ -330,7 +330,7 @@ nav ul li a.active {
 }
 
 #lightbox-close:hover {
-    color: cyan;
+    color: #b48ef5;
     transform: scale(1.2);
 }
 
@@ -347,7 +347,7 @@ nav ul li a.active {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    color: cyan;
+    color: #b48ef5;
     text-decoration: none;
     font-size: 20px;
     transition: color 0.2s;
@@ -369,7 +369,7 @@ footer {
     padding: 24px 8%;
     font-size: 14px;
     color: #555;
-    border-top: 1px solid #222;
+    border-top: 1px solid #2a1f40;
 }
 
 @keyframes fadeIn {

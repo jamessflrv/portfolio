@@ -7,8 +7,8 @@
 
   const CONFIG = {
     particleCount: 80,
-    particleColor: '0, 255, 255',  
-    lineColor: '0, 255, 255',
+    particleColor: '180, 142, 245',  
+    lineColor: '160, 120, 240',
     particleOpacity: 0.55,
     lineOpacity: 0.12,
     maxDistance: 140,
