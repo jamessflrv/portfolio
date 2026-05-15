@@ -1,4 +1,3 @@
-// Hamburger drawer toggle
 var hamburger = document.getElementById('hamburger');
 var drawer    = document.getElementById('drawer');
 var overlay   = document.getElementById('drawer-overlay');
@@ -27,7 +26,6 @@ if (hamburger && drawer && overlay) {
     });
 }
 
-// Page transition fade
 document.querySelectorAll('a[href]').forEach(function (link) {
     var href = link.getAttribute('href');
     if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto')) return;
@@ -38,7 +36,6 @@ document.querySelectorAll('a[href]').forEach(function (link) {
     });
 });
 
-// Lightbox
 var lightbox    = document.getElementById('lightbox');
 var lightboxImg = document.getElementById('lightbox-img');
 
