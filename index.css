@@ -58,7 +58,6 @@ nav {
     z-index: 1000;
 }
 
-/* Hamburger button */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -451,7 +450,6 @@ footer {
     .skill-card i { font-size: 44px; }
     .cert-card { width: 100%; }
 }
-/* ── Hamburger button (fixed top-right) ── */
 .hamburger {
     position: fixed;
     top: 20px;
@@ -481,7 +479,6 @@ footer {
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ── Slide-in drawer ── */
 .drawer {
     position: fixed;
     top: 0;
@@ -522,7 +519,6 @@ footer {
     background: #1e1530;
 }
 
-/* ── Overlay ── */
 .drawer-overlay {
     display: none;
     position: fixed;
