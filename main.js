@@ -1,3 +1,33 @@
+// Hamburger drawer toggle
+var hamburger = document.getElementById('hamburger');
+var drawer    = document.getElementById('drawer');
+var overlay   = document.getElementById('drawer-overlay');
+
+function openDrawer() {
+    hamburger.classList.add('open');
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+}
+
+function closeDrawer() {
+    hamburger.classList.remove('open');
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+}
+
+if (hamburger && drawer && overlay) {
+    hamburger.addEventListener('click', function () {
+        drawer.classList.contains('open') ? closeDrawer() : openDrawer();
+    });
+
+    overlay.addEventListener('click', closeDrawer);
+
+    drawer.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeDrawer);
+    });
+}
+
+// Page transition fade
 document.querySelectorAll('a[href]').forEach(function (link) {
     var href = link.getAttribute('href');
     if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto')) return;
@@ -8,6 +38,7 @@ document.querySelectorAll('a[href]').forEach(function (link) {
     });
 });
 
+// Lightbox
 var lightbox    = document.getElementById('lightbox');
 var lightboxImg = document.getElementById('lightbox-img');
 

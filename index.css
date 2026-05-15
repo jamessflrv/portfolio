@@ -58,6 +58,32 @@ nav {
     z-index: 1000;
 }
 
+/* Hamburger button */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #b48ef5;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 .logo {
     color: #b48ef5;
     font-size: 28px;
@@ -388,8 +414,24 @@ footer {
 }
 
 @media (max-width: 768px) {
-    nav { flex-direction: column; gap: 15px; }
-    nav ul { justify-content: center; }
+    .hamburger { display: flex; }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 4px;
+        padding: 10px 0 4px;
+    }
+
+    nav ul.nav-open {
+        display: flex;
+    }
+
+    nav ul li a {
+        padding: 10px 16px;
+    }
+
     .hero { text-align: center; flex-direction: column; }
     .hero-text h1 { font-size: 38px; }
     .hero-text p  { font-size: 18px; }
@@ -401,7 +443,6 @@ footer {
 @media (max-width: 480px) {
     nav { padding: 20px; }
     .logo { font-size: 22px; }
-    nav ul { gap: 5px; }
     nav ul li a { font-size: 14px; padding: 8px 10px; }
     .hero-text h1 { font-size: 30px; }
     .hero-text p  { font-size: 16px; }
@@ -409,4 +450,87 @@ footer {
     .skill-card { width: 100%; }
     .skill-card i { font-size: 44px; }
     .cert-card { width: 100%; }
+}
+/* ── Hamburger button (fixed top-right) ── */
+.hamburger {
+    position: fixed;
+    top: 20px;
+    right: 28px;
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: #130f1e;
+    border: 1px solid #2a1f40;
+    border-radius: 8px;
+    padding: 10px 11px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #b48ef5;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Slide-in drawer ── */
+.drawer {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 240px;
+    height: 100%;
+    background: #130f1e;
+    border-left: 1px solid #2a1f40;
+    z-index: 9997;
+    padding: 80px 24px 40px;
+    transition: right 0.3s ease;
+}
+
+.drawer.open {
+    right: 0;
+}
+
+.drawer ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.drawer ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: color 0.2s, background 0.2s;
+}
+
+.drawer ul li a:hover,
+.drawer ul li a.active {
+    color: #b48ef5;
+    background: #1e1530;
+}
+
+/* ── Overlay ── */
+.drawer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 9996;
+}
+
+.drawer-overlay.open {
+    display: block;
 }
